@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">hackathon</string>
     <string name="title_activity_clinic">ClinicActivity</string>
+    <string name="title_activity_reports">ReportsActivity</string>
+    <string name="title_activity_scan">ScanActivity</string>
+    <string name="title_activity_resources">ResourcesActivity</string>
 </resources>
