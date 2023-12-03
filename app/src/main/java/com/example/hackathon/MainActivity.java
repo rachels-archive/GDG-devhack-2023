@@ -12,6 +12,8 @@ import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -70,6 +72,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.navigation_menu, menu);
+        return true;
+    }
+
+
     public void classifyImage(Bitmap image){
         try {
             Model model = Model.newInstance(getApplicationContext());
@@ -110,9 +120,7 @@ public class MainActivity extends AppCompatActivity {
                     maxPos = i;
                 }
             }
-            String[] classes = {"Ezcema", "Acne", "Warts", "Bullous Disease", "Psoriasis",
-                    "Insect Bites", "Acnitic Keratisis", "Rosacea", "Basal Cell Carcinoma",
-            "Melanoma", "Squamous Cell Carcinoma", "Moles"};
+            String[] classes = {"Vitiligo","Acne","Dermatitis","Melanoma","Normal","Psoriasis", "Fungal Infection"};
             result.setText(classes[maxPos]);
 
             String s = "";
