@@ -51,7 +51,9 @@
             android:label="@string/title_activity_scan"
             android:theme="@style/Theme.Hackathon" />
 
-
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
 
     </application>

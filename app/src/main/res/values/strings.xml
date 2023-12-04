@@ -4,4 +4,18 @@
     <string name="title_activity_reports">ReportsActivity</string>
     <string name="title_activity_scan">ScanActivity</string>
     <string name="title_activity_resources">ResourcesActivity</string>
+    
+    
+    <string-array name="article_title">
+        <item>Determine your Skin Type</item>
+        <item>Early Signs of Skin Cancer</item>
+        <item>Essential Tips for Healthy Skin</item>
+    </string-array>
+
+    <string-array name="article_author">
+        <item>by Dr. Smith</item>
+        <item>by Jillians (Msc)</item>
+        <item>by Dr. Ling</item>
+    </string-array>
+
 </resources>

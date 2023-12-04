@@ -2,6 +2,8 @@ package com.example.hackathon;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,9 +14,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
+    ArrayList<ArticleModel> articleModels = new ArrayList<>();
+    int[] articleImages = {R.drawable.article1, R.drawable.article2, R.drawable.article3};
     DrawerLayout drawerLayout;
     ImageView menu;
     LinearLayout home, reports, resources;
@@ -25,6 +31,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        RecyclerView recyclerView = findViewById(R.id.mRecyclerView);
+
+        setUpArticleModels();
+
+        Article_RecyclerViewAdapter adapter = new Article_RecyclerViewAdapter(this, articleModels);
+
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
+
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this ));
 
         drawerLayout = findViewById(R.id.drawerLayout);
         menu = findViewById(R.id.menu);
@@ -36,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "dnje", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "dnje", Toast.LENGTH_SHORT).show();
                 openDrawer(drawerLayout);
             }
         });
@@ -62,6 +78,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setUpArticleModels() {
+        String[] articleTitles = getResources().getStringArray(R.array.article_title);
+        String[] articleAuthors = getResources().getStringArray(R.array.article_author);
+
+        for (int i = 0; i < articleTitles.length; i ++){
+            articleModels.add(new ArticleModel(articleTitles[i],
+                    articleAuthors[i],
+                    articleImages[i]));
+        }
     }
 
     public static void openDrawer(DrawerLayout drawerLayout) {
