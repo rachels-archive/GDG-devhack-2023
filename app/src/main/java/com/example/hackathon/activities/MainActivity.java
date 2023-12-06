@@ -1,4 +1,5 @@
-package com.example.hackathon;
+package com.example.hackathon.activities;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
@@ -12,13 +13,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
+
+import com.example.hackathon.R;
+import com.example.hackathon.adapters.Article_RecyclerViewAdapter;
+import com.example.hackathon.models.ArticleModel;
+import com.example.hackathon.models.RecyclerViewInterface;
 
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity implements RecyclerViewInterface{
+public class MainActivity extends AppCompatActivity implements RecyclerViewInterface {
 
     ArrayList<ArticleModel> articleModels = new ArrayList<>();
     int[] articleImages = {R.drawable.article1, R.drawable.article2, R.drawable.article3};
@@ -26,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
     ImageView menu;
     LinearLayout home, reports, resources;
 
-    CardView scanCard, chatCard;
+    CardView scanCard, chatCard, trackCard;
 
 
     @Override
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
 
         scanCard = findViewById(R.id.scanCard);
         chatCard = findViewById(R.id.chatbotCard);
+        trackCard = findViewById(R.id.trackCard);
 
         scanCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
             }
         });
 
+
         chatCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +78,12 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
             }
         });
 
+        trackCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, TrackActivity.class));
+            }
+        });
 
 
         menu.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         String[] articleAuthors = getResources().getStringArray(R.array.article_author);
         String[] articleContent = getResources().getStringArray(R.array.article_content);
 
-        for (int i = 0; i < articleTitles.length; i ++){
+        for (int i = 0; i < articleTitles.length; i++) {
             articleModels.add(new ArticleModel(articleTitles[i],
                     articleAuthors[i],
                     articleImages[i],

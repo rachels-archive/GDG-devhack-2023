@@ -1,18 +1,20 @@
-package com.example.hackathon;
+package com.example.hackathon.activities;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.hackathon.R;
+import com.example.hackathon.adapters.MessageAdapter;
+import com.example.hackathon.models.Message;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -89,8 +91,6 @@ public class ChatActivity extends AppCompatActivity {
     }
 
 
-
-
     void addToChat(String message, String sentBy) {
         runOnUiThread(new Runnable() {
             @Override
@@ -103,26 +103,26 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     void addResponse(String response) {
-        messageList.remove(messageList.size()-1);
-        addToChat(response, Message.SENT_BY_BOT );
+        messageList.remove(messageList.size() - 1);
+        addToChat(response, Message.SENT_BY_BOT);
     }
 
     void callAPI(String question) {
         //okhttp
-        messageList.add(new Message("Typing... ",Message.SENT_BY_BOT));
+        messageList.add(new Message("Typing... ", Message.SENT_BY_BOT));
 
         JSONObject jsonBody = new JSONObject();
 
         try {
-            jsonBody.put("model","gpt-3.5-turbo");
+            jsonBody.put("model", "gpt-3.5-turbo");
 
             JSONArray messageArr = new JSONArray();
             JSONObject obj = new JSONObject();
-            obj.put("role","user");
-            obj.put("content",question);
+            obj.put("role", "user");
+            obj.put("content", question);
             messageArr.put(obj);
 
-            jsonBody.put("messages",messageArr);
+            jsonBody.put("messages", messageArr);
 
 
         } catch (JSONException e) {
@@ -143,6 +143,7 @@ public class ChatActivity extends AppCompatActivity {
                 e.printStackTrace();
                 runOnUiThread(() -> addResponse("Failed to load response due to " + e.getMessage()));
             }
+
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                 try {
@@ -166,7 +167,6 @@ public class ChatActivity extends AppCompatActivity {
         });
 
     }
-
 
 
 }

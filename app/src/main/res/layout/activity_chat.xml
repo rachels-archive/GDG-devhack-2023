@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ChatActivity">
+    tools:context=".activities.ChatActivity">
 
     <include
-        layout="@layout/backbar"
-        android:id="@+id/header"/>
+        android:id="@+id/header"
+        layout="@layout/backbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/chatBottomLayout"
-       android:layout_below="@+id/header"/>
+        android:layout_below="@+id/header" />
 
     <TextView
         android:id="@+id/welcome_text"
@@ -28,10 +28,10 @@
         android:textSize="28dp" />
 
     <RelativeLayout
+        android:id="@id/chatBottomLayout"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
-        android:id="@id/chatBottomLayout">
+        android:layout_alignParentBottom="true">
 
         <EditText
             android:id="@+id/chatEditText"

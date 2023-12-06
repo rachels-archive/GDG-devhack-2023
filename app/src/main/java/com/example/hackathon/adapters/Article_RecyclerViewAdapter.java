@@ -1,4 +1,4 @@
-package com.example.hackathon;
+package com.example.hackathon.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.hackathon.models.ArticleModel;
+import com.example.hackathon.R;
+import com.example.hackathon.models.RecyclerViewInterface;
 
 import java.util.ArrayList;
 

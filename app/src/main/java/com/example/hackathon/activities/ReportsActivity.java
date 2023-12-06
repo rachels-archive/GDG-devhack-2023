@@ -1,4 +1,4 @@
-package com.example.hackathon;
+package com.example.hackathon.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,8 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.hackathon.R;
+
 public class ReportsActivity extends AppCompatActivity {
-    
+
     ImageView backBtn;
 
 
@@ -23,7 +25,7 @@ public class ReportsActivity extends AppCompatActivity {
 
         backBtn = findViewById(R.id.backbtn);
 
-        backBtn.setOnClickListener(v-> {
+        backBtn.setOnClickListener(v -> {
             finish();
         });
 

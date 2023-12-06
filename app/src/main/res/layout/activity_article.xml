@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:fillViewport="false">
+    android:fillViewport="false"
+    android:orientation="vertical">
 
 
     <LinearLayout
@@ -16,11 +16,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        >
+        app:layout_constraintVertical_bias="1.0">
 
-        <include
-            layout="@layout/backbar"/>
+        <include layout="@layout/backbar" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -29,43 +27,38 @@
             android:padding="20dp">
 
 
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Article Title"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="24sp"
-            />
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Article Title"
+                android:textSize="24sp" />
 
-        <ImageView
-            android:id="@+id/articleImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            app:srcCompat="@drawable/article1"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
+            <ImageView
+                android:id="@+id/articleImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:srcCompat="@drawable/article1" />
 
-        <TextView
-            android:id="@+id/authorTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="by Dr Ling"
-            android:textSize="16dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/poppins"
-            />
+            <TextView
+                android:id="@+id/authorTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/poppins"
+                android:text="by Dr Ling"
+                android:textSize="16dp" />
 
-        <TextView
-            android:id="@+id/contentTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="20dp"
-            android:fontFamily="@font/poppins"
-            />
+            <TextView
+                android:id="@+id/contentTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="TextView"
+                android:textSize="20dp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

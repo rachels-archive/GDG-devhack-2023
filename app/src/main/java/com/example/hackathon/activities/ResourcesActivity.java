@@ -1,6 +1,5 @@
-package com.example.hackathon;
+package com.example.hackathon.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -8,7 +7,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import java.util.ArrayList;
+import com.example.hackathon.R;
 
 public class ResourcesActivity extends AppCompatActivity {
 
@@ -25,25 +24,25 @@ public class ResourcesActivity extends AppCompatActivity {
         ingredientsCard = findViewById(R.id.ingredients_card);
         backBtn = findViewById(R.id.backbtn);
 
-        conditionsCard.setOnClickListener(v->{
-            Intent intent= new Intent(ResourcesActivity.this, ResourceListActivity.class);
+        conditionsCard.setOnClickListener(v -> {
+            Intent intent = new Intent(ResourcesActivity.this, ResourceListActivity.class);
             intent.putExtra("prev", "conditions");
             startActivity(intent);
         });
 
-        medicationsCard.setOnClickListener(v->{
-            Intent intent= new Intent(ResourcesActivity.this, ResourceListActivity.class);
+        medicationsCard.setOnClickListener(v -> {
+            Intent intent = new Intent(ResourcesActivity.this, ResourceListActivity.class);
             intent.putExtra("prev", "medications");
             startActivity(intent);
         });
 
-        ingredientsCard.setOnClickListener(v->{
-            Intent intent= new Intent(ResourcesActivity.this, ResourceListActivity.class);
+        ingredientsCard.setOnClickListener(v -> {
+            Intent intent = new Intent(ResourcesActivity.this, ResourceListActivity.class);
             intent.putExtra("prev", "ingredients");
             startActivity(intent);
         });
 
-        backBtn.setOnClickListener(v-> {
+        backBtn.setOnClickListener(v -> {
             finish();
         });
     }

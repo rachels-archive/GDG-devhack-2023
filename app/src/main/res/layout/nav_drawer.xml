@@ -1,136 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/drawer_border">
+    android:background="@drawable/drawer_border"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="176dp"
-        android:orientation="vertical"
-        android:gravity="bottom"
-        android:padding="16dp"
         android:background="@drawable/header_bg"
-        android:theme="@style/ThemeOverlay.AppCompat.DayNight" >
-
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:theme="@style/ThemeOverlay.AppCompat.DayNight">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pocket Derm"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             android:textSize="32sp"
-            android:textColor="@color/white" />
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:text="contact@pocketderm.com"
             android:textColor="@color/white"
-            android:textSize="20sp"
-            android:layout_marginBottom="16dp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/nav_home"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal" >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/drawer_border"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/lavender"
-            android:text="Home"
-            android:textSize="24sp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
             android:drawableLeft="@drawable/home"
-            android:drawablePadding="8dp" />
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="Home"
+            android:textColor="@color/lavender"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/nav_resources"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal" >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/lavender"
-            android:text="Resources"
-            android:textSize="24sp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
             android:drawableLeft="@drawable/resources"
-            android:drawablePadding="8dp" />
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="Resources"
+            android:textColor="@color/lavender"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/nav_report"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal" >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/drawer_border"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/lavender"
-            android:text="Reports"
-            android:textSize="24sp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
             android:drawableLeft="@drawable/report"
-            android:drawablePadding="8dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/nav_settings"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="Reports"
             android:textColor="@color/lavender"
-            android:text="Settings"
-            android:textSize="24sp"
-            android:drawableLeft="@drawable/settings"
-            android:drawablePadding="8dp" />
+            android:textSize="24sp" />
 
     </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/nav_logout"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/lavender"
-            android:text="Log Out"
-            android:textSize="24sp"
-            android:drawableLeft="@drawable/logout"
-            android:drawablePadding="8dp" />
-
-    </LinearLayout>
-
 
 
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.hackathon;
+package com.example.hackathon.activities;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,15 +12,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.ImageDecoder;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -34,8 +31,8 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.time.Duration;
 
+import com.example.hackathon.R;
 import com.example.hackathon.ml.Model;
 
 public class ScanActivity extends AppCompatActivity {
@@ -63,7 +60,7 @@ public class ScanActivity extends AppCompatActivity {
         requestBtn = findViewById(R.id.button3);
         backBtn = findViewById(R.id.backbtn);
 
-        backBtn.setOnClickListener(v->{
+        backBtn.setOnClickListener(v -> {
             finish();
         });
 
@@ -71,11 +68,11 @@ public class ScanActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent uploadIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(uploadIntent,2);
+                startActivityForResult(uploadIntent, 2);
             }
         });
 
-        requestBtn.setOnClickListener(v-> {
+        requestBtn.setOnClickListener(v -> {
             Drawable drawable = imageView.getDrawable();
             boolean hasImage = (drawable != null);
 
@@ -106,7 +103,7 @@ public class ScanActivity extends AppCompatActivity {
                 // Launch camera if we have permission
                 if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
                     Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(cameraIntent,1);
+                    startActivityForResult(cameraIntent, 1);
                 } else {
                     //Request camera permission if we don't have it.
                     requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
@@ -134,7 +131,7 @@ public class ScanActivity extends AppCompatActivity {
     }
 
 
-    public void classifyImage(Bitmap image){
+    public void classifyImage(Bitmap image) {
         try {
             Model model = Model.newInstance(getApplicationContext());
 
@@ -144,13 +141,13 @@ public class ScanActivity extends AppCompatActivity {
             byteBuffer.order(ByteOrder.nativeOrder());
 
             // get 1D array of 224 * 224 pixels in image
-            int [] intValues = new int[imageSize * imageSize];
+            int[] intValues = new int[imageSize * imageSize];
             image.getPixels(intValues, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
 
             // iterate over pixels and extract R, G, and B values. Add to bytebuffer.
             int pixel = 0;
-            for(int i = 0; i < imageSize; i++){
-                for(int j = 0; j < imageSize; j++){
+            for (int i = 0; i < imageSize; i++) {
+                for (int j = 0; j < imageSize; j++) {
                     int val = intValues[pixel++]; // RGB
                     byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 255.f));
                     byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 255.f));
@@ -168,17 +165,17 @@ public class ScanActivity extends AppCompatActivity {
             // find the index of the class with the biggest confidence.
             int maxPos = 0;
             float maxConfidence = 0;
-            for(int i = 0; i < confidences.length; i++){
-                if(confidences[i] > maxConfidence){
+            for (int i = 0; i < confidences.length; i++) {
+                if (confidences[i] > maxConfidence) {
                     maxConfidence = confidences[i];
                     maxPos = i;
                 }
             }
-            String[] classes = {"Vitiligo","Acne","Dermatitis","Melanoma","Normal","Psoriasis", "Fungal Infection"};
+            String[] classes = {"Vitiligo", "Acne", "Dermatitis", "Melanoma", "Normal", "Psoriasis", "Fungal Infection"};
             result.setText(classes[maxPos]);
 
             String s = "";
-            for(int i = 0; i < classes.length; i++){
+            for (int i = 0; i < classes.length; i++) {
                 s += String.format("%s: %.1f%%\n", classes[i], confidences[i] * 100);
             }
             confidence.setText(s);
@@ -205,16 +202,15 @@ public class ScanActivity extends AppCompatActivity {
         }
 
         if (requestCode == 2 && resultCode == RESULT_OK) {
-            if (data!=null){
+            if (data != null) {
                 Uri imageUri = data.getData();
                 try {
                     Bitmap img = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
                     int dimension = Math.min(img.getWidth(), img.getHeight());
                     imageView.setImageBitmap(img);
                     img = ThumbnailUtils.extractThumbnail(img, dimension, dimension);
-                    img=Bitmap.createScaledBitmap(img, imageSize, imageSize, false);
+                    img = Bitmap.createScaledBitmap(img, imageSize, imageSize, false);
                     classifyImage(img);
-
 
 
                 } catch (IOException e) {

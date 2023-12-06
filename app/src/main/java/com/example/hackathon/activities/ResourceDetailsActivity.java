@@ -1,10 +1,12 @@
-package com.example.hackathon;
+package com.example.hackathon.activities;
 
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.hackathon.R;
 
 public class ResourceDetailsActivity extends AppCompatActivity {
 
@@ -19,7 +21,7 @@ public class ResourceDetailsActivity extends AppCompatActivity {
         descTv = findViewById(R.id.descTextView);
         backBtn = findViewById(R.id.backbtn);
 
-        backBtn.setOnClickListener(v->{
+        backBtn.setOnClickListener(v -> {
             finish();
         });
 

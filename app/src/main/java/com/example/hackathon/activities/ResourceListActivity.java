@@ -1,11 +1,8 @@
-package com.example.hackathon;
+package com.example.hackathon.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,18 +10,21 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.hackathon.R;
+import com.example.hackathon.adapters.Resource_RecyclerViewAdapter;
+import com.example.hackathon.models.RecyclerViewInterface;
+import com.example.hackathon.models.ResourceModel;
 
-public class ResourceListActivity extends AppCompatActivity implements RecyclerViewInterface{
+import java.util.ArrayList;
+
+public class ResourceListActivity extends AppCompatActivity implements RecyclerViewInterface {
     ImageView backBtn;
 
     SearchView searchView;
 
-    ArrayList<ResourceModel>  resourceModels = new ArrayList<>();
+    ArrayList<ResourceModel> resourceModels = new ArrayList<>();
 
     Resource_RecyclerViewAdapter adapter;
-
 
 
     @Override
@@ -35,7 +35,6 @@ public class ResourceListActivity extends AppCompatActivity implements RecyclerV
         backBtn = findViewById(R.id.backbtn);
         searchView = findViewById(R.id.searchView);
         searchView.clearFocus();
-
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -69,8 +68,8 @@ public class ResourceListActivity extends AppCompatActivity implements RecyclerV
 
     private void filterList(String text) {
         ArrayList<ResourceModel> dataSearchList = new ArrayList<>();
-        for (ResourceModel data: resourceModels) {
-            if(data.getName().toLowerCase().contains(text.toLowerCase())) {
+        for (ResourceModel data : resourceModels) {
+            if (data.getName().toLowerCase().contains(text.toLowerCase())) {
                 dataSearchList.add(data);
             }
         }
@@ -78,8 +77,8 @@ public class ResourceListActivity extends AppCompatActivity implements RecyclerV
     }
 
     private void setUpResourceModels() {
-       // String[] resourceName = getResources().getStringArray(R.array.skin_condition_name);
-     //   String[] resourceDesc = getResources().getStringArray(R.array.skin_condition_desc);
+        // String[] resourceName = getResources().getStringArray(R.array.skin_condition_name);
+        //   String[] resourceDesc = getResources().getStringArray(R.array.skin_condition_desc);
 
         //Log.i("CLASS", getIntent().getStringExtra("prev"));
 
@@ -90,7 +89,7 @@ public class ResourceListActivity extends AppCompatActivity implements RecyclerV
                 String[] resourceName = getResources().getStringArray(R.array.skin_condition_name);
                 String[] resourceDesc = getResources().getStringArray(R.array.skin_condition_desc);
 
-                for (int i = 0; i < resourceName.length; i ++) {
+                for (int i = 0; i < resourceName.length; i++) {
                     resourceModels.add(new ResourceModel(resourceName[i], resourceDesc[i]));
                 }
                 break;
@@ -98,7 +97,7 @@ public class ResourceListActivity extends AppCompatActivity implements RecyclerV
                 String[] medicationName = getResources().getStringArray(R.array.medication_name);
                 String[] medicationDesc = getResources().getStringArray(R.array.medication_desc);
 
-                for (int i = 0; i < medicationName.length; i ++) {
+                for (int i = 0; i < medicationName.length; i++) {
                     resourceModels.add(new ResourceModel(medicationName[i], medicationDesc[i]));
                 }
                 break;
@@ -106,7 +105,7 @@ public class ResourceListActivity extends AppCompatActivity implements RecyclerV
                 String[] ingredientName = getResources().getStringArray(R.array.ingredients_name);
                 String[] ingredientDesc = getResources().getStringArray(R.array.ingredients_desc);
 
-                for (int i = 0; i < ingredientName.length; i ++) {
+                for (int i = 0; i < ingredientName.length; i++) {
                     resourceModels.add(new ResourceModel(ingredientName[i], ingredientDesc[i]));
                 }
                 break;
@@ -114,6 +113,7 @@ public class ResourceListActivity extends AppCompatActivity implements RecyclerV
         }
 
     }
+
     @Override
     public void onItemClick(int pos) {
         Intent intent = new Intent(ResourceListActivity.this, ResourceDetailsActivity.class);
@@ -121,9 +121,6 @@ public class ResourceListActivity extends AppCompatActivity implements RecyclerV
         intent.putExtra("DESC", resourceModels.get(pos).getDescription());
         startActivity(intent);
     }
-
-
-
 
 
 }
