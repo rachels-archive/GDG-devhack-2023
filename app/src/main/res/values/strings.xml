@@ -43,37 +43,17 @@
     </string-array>
 
     <string-array name="skin_condition_desc">
-        <item>Acne is a common skin condition that causes spots or pimples on the face, neck, back or chest.</item>
-        <item>Cellulitis is a skin infection caused by bacteria. It can be warm, red, tender and very painful.</item>
-        <item>Ezcema is a condition that causes dry, itchy and inflamed skin.</item>
-        <item>This causes itchy, raised welts that occur after exposure to an allergen.</item>
-        <item>Melanoma is a type of skin cancer that can spread to other areas of the body.</item>
-        <item>Psoriasis is a long-term inflammatory disease that causes red, scaly skin lesions.</item>
-        <item>Rosacea is a common skin condition that most often affects your cheeks, chin and nose.</item>
-        <item>Vitiligo is a chronic autoimmune condition that causes the skin to lose melanin.</item>
+        <item>Acne is a common skin condition that causes spots or pimples on the face, neck, back or chest. \n\n Tips:\n\n  &#8226; avoid skin care products with alcohol \n &#8226; wash face daily \n &#8226;use an oil-free moisturizer \n &#8226; get enough sleep  \n &#8226; eat a balanced diet</item>
+        <item>Cellulitis is a skin infection caused by bacteria. It can be warm, red, tender and very painful. \n\n Tips:\n\n  &#8226; keep skin clean and well moisturized \n  &#8226; avoid skin injuries such as cuts and scrapes \n &#8226; keep your nails short</item>
+        <item>Ezcema is a condition that causes dry, itchy and inflamed skin. \n\n Tips: \n\n &#8226; moisturise your skin regularly  \n  &#8226; avoid hot showers \n  &#8226; stay hydrated \n  &#8226; wear loose clothing</item>
+        <item>This causes itchy, raised welts that occur after exposure to an allergen. \n\n Tips: \n\n Avoid allergy triggers. These can include foods, medications, pollen, pet dander, latex and insect stings.</item>
+        <item>Melanoma is a type of skin cancer that can spread to other areas of the body.\n\n Tips:\n \n The main cause of melanoma is ultraviolet light, avoiding sun exposure and using a broad-spectrum sunscreen can greatly reduce the risk of melanoma.</item>
+        <item>Psoriasis is a long-term inflammatory disease that causes red, scaly skin lesions.\n\n Tips: \n\n Psoriasis is a long-term inflammatory disease that causes red, scaly skin lesions. </item>
+        <item>Rosacea is a common skin condition that most often affects your cheeks, chin and nose.\n\n Tips: \n\n As we don’t know exactly what causes rosacea, it can’t be prevented.</item>
+        <item>Vitiligo is a chronic autoimmune condition that causes the skin to lose melanin. \n\n Tips:\n\n There is currently no known way to prevent or cure vitiligo.</item>
     </string-array>
 
-    <string-array name="skin_condition_prevention">
-        <item>&#8226; avoid skin care products with alcohol \n &#8226; wash face daily \n &#8226;use an oil-free moisturizer \n &#8226; get enough sleep  \n &#8226; eat a balanced diet</item>
-        <item>&#8226; keep skin clean and well moisturized \n  &#8226; avoid skin injuries such as cuts and scrapes \n &#8226; keep your nails short </item>
-        <item>&#8226; moisturise your skin regularly  \n  &#8226; avoid hot showers \n  &#8226; stay hydrated \n  &#8226; wear loose clothing</item>
-        <item>Avoid allergy triggers. These can include foods, medications, pollen, pet dander, latex and insect stings.</item>
-        <item> The main cause of melanoma is ultraviolet light, avoiding sun exposure and using a broad-spectrum sunscreen can greatly reduce the risk of melanoma.</item>
-        <item>Psoriasis is a long-term inflammatory disease that causes red, scaly skin lesions</item>
-        <item>As we don’t know exactly what causes rosacea, it can’t be prevented.</item>
-        <item>There is currently no known way to prevent or cure vitiligo.</item>
-    </string-array>
 
-    <string-array name="skin_condition_treatment">
-        <item>&#8226; acne wash or cleanser \n &#8226; tea tree oil \n &#8226; creams with glycolic acid \n &#8226;light microdermabrasion \n &#8226; antibiotics</item>
-        <item>&#8226; antibiotics \n  &#8226; rest \n &#8226; elevation of affected body parts \n &#8226; topical steroids \n &#8226; painkillers </item>
-        <item>&#8226; moisturisers and topical steroids \n &#8226; antihistamines</item>
-        <item>&#8226; No treatment is normally needed.\n &#8226; If condition persists, it can be treated by taking antihistamines.</item>
-        <item>&#8226; Surgery \n &#8226; chemotherapy \n &#8226; radiotherapy \n &#8226; immunotherapy</item>
-        <item>&#8226; corticosteroid medicines \n &#8226; light therapy \n &#8226; application of retinoids</item>
-        <item>&#8226; use gentle products \n  &#8226; avoid excess sunlight and dry weather \n  &#8226; avoid skin injuries \n  &#8226; avoid alcohol</item>
-        <item>&#8226; topical creams \n  &#8226; light therapy \n  &#8226; prescription medications \n  &#8226; depigmentation \n  &#8226; surgery</item>
-    </string-array>
 
     <string-array name="medication_name">
         <item>Accutane</item>
@@ -93,6 +73,30 @@
         <item>Lotrimin is used to treat fungal infections such as yeast infections, oral thrush, diaper rash, tinea versicolor, athlete\'s foot and jock itch.</item>
         <item>Minocin treats acne by killing the bacteria that infects pores and decreasing a certain natural oily substance that causes acne</item>
         <item>Mirvaso is used for treating skin of the face affected by redness due to rosacea in adult patients.</item>
+    </string-array>
+
+    <string-array name="ingredients_name">
+        <item>Allantoin</item>
+        <item>Bakuchiol</item>
+        <item>Bentonite Clay</item>
+        <item>Glycerin</item>
+        <item>Hyaluronic Acid</item>
+        <item>Kaolin</item>
+        <item>Niacinamide</item>
+        <item>Petroleum Jelly</item>
+        <item>Tea Tree Oil</item>
+    </string-array>
+
+    <string-array name="ingredients_desc">
+        <item>Benefits: Moisturizes, soothes itchiness, and heals injured skin. \n \nFrequency: Can be used day in and day out. \n \n Note: Combining it with other exfoliants may cause irritation. </item>
+        <item>Benefits: Wrinkle reduction, increases skin firmness, and minimise pores. \n \nFrequency: Can be used twice a day. \n \n Note: Glycolic acid might degrade the formulation.</item>
+        <item>Benefits: Absorbs excess oil, exfoliates, and anti-inflammatory. \n \nFrequency: Once a week. \n \n Note: Can be drying in and of itself.</item>
+        <item>Benefits: Moisturizes skin, smoothes skin, makes skin appear dewy. \n \nFrequency: Multiple times a day. \n \n Note: Generally safe to use with any products.</item>
+        <item>Benefits: Moisturizes skin, reduces appearance of wrinkles, speeds wound healing. \n \nFrequency: Can be used twice a day. \n \n Note: There are no known negative reactions to hyaluronic acid.</item>
+        <item>Benefits: Binds sebum, removes excess oil and draw out impurities. \n \nFrequency: 1-4 times a week. \n \n Note: Avoid using other drying agents.</item>
+        <item>Benefits: Brightening, prevents signs of aging, reduces acne. \n \nFrequency: Can be used twice a day. \n \n Note: Generally safe to use with any products.</item>
+        <item>Benefits: Seals in moisture, soothes cuts and abrasions. \n \nFrequency: Can be everyday. \n \n Note: Not suitable for oily, acne-prone skin.</item>
+        <item>Benefits: Kills bacteria, fungus, and eases inflammation. \n \nFrequency: Recommeneded to use twice a day. \n \n Note: Must be diluted with a carrier oil such as jojoba oil.</item>
     </string-array>
 
 </resources>

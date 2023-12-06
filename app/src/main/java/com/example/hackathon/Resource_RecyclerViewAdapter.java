@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Resource_RecyclerViewAdapter extends RecyclerView.Adapter<Resource_RecyclerViewAdapter.MyViewHolder>{
 
@@ -43,6 +44,12 @@ public class Resource_RecyclerViewAdapter extends RecyclerView.Adapter<Resource_
     public int getItemCount() {
         return resourceModels.size();
     }
+
+    public void setSearchList(ArrayList<ResourceModel> searchList) {
+        this.resourceModels = searchList;
+        notifyDataSetChanged();
+    }
+
 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

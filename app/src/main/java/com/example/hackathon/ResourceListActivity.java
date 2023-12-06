@@ -5,15 +5,26 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
+
 public class ResourceListActivity extends AppCompatActivity implements RecyclerViewInterface{
     ImageView backBtn;
+
+    SearchView searchView;
+
     ArrayList<ResourceModel>  resourceModels = new ArrayList<>();
+
+    Resource_RecyclerViewAdapter adapter;
+
 
 
     @Override
@@ -22,46 +33,48 @@ public class ResourceListActivity extends AppCompatActivity implements RecyclerV
         setContentView(R.layout.activity_resource_list);
 
         backBtn = findViewById(R.id.backbtn);
+        searchView = findViewById(R.id.searchView);
+        searchView.clearFocus();
+
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
 
         RecyclerView recyclerView = findViewById(R.id.rRecyclerView);
 
-    //    String a = getIntent().getStringExtra("prev");
-    //    Log.d("TEST", a);
-
-        /*
-        String prevCard = getIntent().getStringExtra("prev");
-        switch (prevCard) {
-            case "conditions":
-                setUpResourceModels();
-
-                Resource_RecyclerViewAdapter adapter = new Resource_RecyclerViewAdapter(this, resourceModels, this);
-
-                recyclerView.setAdapter(adapter);
-                recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-                break;
-            case "medications":
-
-                setUpMedicationModels();
-
-                Resource_RecyclerViewAdapter adapter2 = new Resource_RecyclerViewAdapter(this, medicationModels, this);
-
-                recyclerView.setAdapter(adapter2);
-                recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-                break;
-        }
-        */
         setUpResourceModels();
 
-        Resource_RecyclerViewAdapter adapter = new Resource_RecyclerViewAdapter(this, resourceModels, this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        adapter = new Resource_RecyclerViewAdapter(this, resourceModels, this);
 
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         backBtn.setOnClickListener((v) -> {
             finish();
         });
+
+    }
+
+    private void filterList(String text) {
+        ArrayList<ResourceModel> dataSearchList = new ArrayList<>();
+        for (ResourceModel data: resourceModels) {
+            if(data.getName().toLowerCase().contains(text.toLowerCase())) {
+                dataSearchList.add(data);
+            }
+        }
+        adapter.setSearchList(dataSearchList);
     }
 
     private void setUpResourceModels() {
@@ -90,17 +103,17 @@ public class ResourceListActivity extends AppCompatActivity implements RecyclerV
                 }
                 break;
             case "ingredients":
-                String[] ingredientName = getResources().getStringArray(R.array.article_title);
-                String[] ingredientDesc = getResources().getStringArray(R.array.article_content);
+                String[] ingredientName = getResources().getStringArray(R.array.ingredients_name);
+                String[] ingredientDesc = getResources().getStringArray(R.array.ingredients_desc);
 
                 for (int i = 0; i < ingredientName.length; i ++) {
                     resourceModels.add(new ResourceModel(ingredientName[i], ingredientDesc[i]));
                 }
                 break;
+
         }
 
     }
-
     @Override
     public void onItemClick(int pos) {
         Intent intent = new Intent(ResourceListActivity.this, ResourceDetailsActivity.class);
@@ -108,5 +121,9 @@ public class ResourceListActivity extends AppCompatActivity implements RecyclerV
         intent.putExtra("DESC", resourceModels.get(pos).getDescription());
         startActivity(intent);
     }
+
+
+
+
 
 }
