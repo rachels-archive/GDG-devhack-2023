@@ -4,12 +4,15 @@ public class ArticleModel {
 
     String articleTitle;
     String articleAuthor;
-    int image;
 
-    public ArticleModel(String articleTitle, String articleAuthor, int image) {
+    String articleContent;
+    int articleImage;
+
+    public ArticleModel(String articleTitle, String articleAuthor, int articleImage, String articleContent) {
         this.articleTitle = articleTitle;
         this.articleAuthor = articleAuthor;
-        this.image = image;
+        this.articleContent = articleContent;
+        this.articleImage = articleImage;
     }
 
     public String getArticleTitle() {
@@ -20,7 +23,12 @@ public class ArticleModel {
         return articleAuthor;
     }
 
-    public int getImage() {
-        return image;
+    public int getArticleImage() {
+        return articleImage;
     }
+
+    public String getArticleContent() {
+        return articleContent;
+    }
+
 }

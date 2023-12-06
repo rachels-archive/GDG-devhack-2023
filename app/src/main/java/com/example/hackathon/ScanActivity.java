@@ -7,10 +7,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.ImageDecoder;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +26,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.tensorflow.lite.DataType;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
@@ -29,19 +34,18 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.time.Duration;
 
 import com.example.hackathon.ml.Model;
 
 public class ScanActivity extends AppCompatActivity {
 
-    DrawerLayout drawerLayout;
     ImageView menu;
     LinearLayout home, reports, resources;
 
     TextView result, confidence;
-    ImageView imageView;
-    Button picture;
-    Button uploadBtn;
+    ImageView imageView, backBtn;
+    Button picture, uploadBtn, requestBtn;
     int imageSize = 224;
 
 
@@ -50,49 +54,18 @@ public class ScanActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
 
-        drawerLayout = findViewById(R.id.drawerLayout);
-        menu = findViewById(R.id.menu);
-        home = findViewById(R.id.nav_home);
-        reports = findViewById(R.id.nav_report);
-        resources = findViewById(R.id.nav_resources);
-
-
-        menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openDrawer(drawerLayout);
-            }
-        });
-
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                recreate();
-            }
-        });
-
-        reports.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                redirectActivity(ScanActivity.this, ReportsActivity.class);
-            }
-        });
-
-        resources.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                redirectActivity(ScanActivity.this, ResourcesActivity.class);
-            }
-        });
-
-
 
         result = findViewById(R.id.result);
         confidence = findViewById(R.id.confidence);
         imageView = findViewById(R.id.imageView);
         picture = findViewById(R.id.button);
-
         uploadBtn = findViewById(R.id.button2);
+        requestBtn = findViewById(R.id.button3);
+        backBtn = findViewById(R.id.backbtn);
+
+        backBtn.setOnClickListener(v->{
+            finish();
+        });
 
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +73,31 @@ public class ScanActivity extends AppCompatActivity {
                 Intent uploadIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(uploadIntent,2);
             }
+        });
+
+        requestBtn.setOnClickListener(v-> {
+            Drawable drawable = imageView.getDrawable();
+            boolean hasImage = (drawable != null);
+
+            if (hasImage && (drawable instanceof BitmapDrawable)) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(ScanActivity.this);
+                builder.setMessage("Do you want to a report for this result ?");
+                builder.setTitle("Request Confirmation");
+                builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    Toast.makeText(this, "Kindly wait 1-3 days for your report.", Toast.LENGTH_LONG).show();
+                    finish();
+                });
+
+                builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    dialog.cancel();
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            } else {
+                Toast.makeText(this, "Upload a picture to request a report", Toast.LENGTH_SHORT).show();
+            }
+
         });
 
         picture.setOnClickListener(new View.OnClickListener() {
@@ -135,11 +133,6 @@ public class ScanActivity extends AppCompatActivity {
         activity.finish();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        closeDrawer(drawerLayout);
-    }
 
     public void classifyImage(Bitmap image){
         try {

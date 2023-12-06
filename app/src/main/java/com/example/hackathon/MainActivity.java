@@ -1,5 +1,6 @@
 package com.example.hackathon;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,13 +18,15 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RecyclerViewInterface{
 
     ArrayList<ArticleModel> articleModels = new ArrayList<>();
     int[] articleImages = {R.drawable.article1, R.drawable.article2, R.drawable.article3};
     DrawerLayout drawerLayout;
     ImageView menu;
     LinearLayout home, reports, resources;
+
+    CardView scanCard, chatCard;
 
 
     @Override
@@ -35,10 +38,14 @@ public class MainActivity extends AppCompatActivity {
 
         setUpArticleModels();
 
-        Article_RecyclerViewAdapter adapter = new Article_RecyclerViewAdapter(this, articleModels);
+        Article_RecyclerViewAdapter adapter = new Article_RecyclerViewAdapter(this, articleModels, this);
 
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
+
+        //LinearLayout linearLayoutManager = new LinearLayoutManager(this);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
 
         //recyclerView.setLayoutManager(new LinearLayoutManager(this ));
 
@@ -47,6 +54,24 @@ public class MainActivity extends AppCompatActivity {
         home = findViewById(R.id.nav_home);
         reports = findViewById(R.id.nav_report);
         resources = findViewById(R.id.nav_resources);
+
+        scanCard = findViewById(R.id.scanCard);
+        chatCard = findViewById(R.id.chatbotCard);
+
+        scanCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ScanActivity.class));
+            }
+        });
+
+        chatCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ChatActivity.class));
+            }
+        });
+
 
 
         menu.setOnClickListener(new View.OnClickListener() {
@@ -67,14 +92,14 @@ public class MainActivity extends AppCompatActivity {
         reports.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                redirectActivity(MainActivity.this, ReportsActivity.class);
+                startActivity(new Intent(MainActivity.this, ReportsActivity.class));
             }
         });
 
         resources.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                redirectActivity(MainActivity.this, ResourcesActivity.class);
+                startActivity(new Intent(MainActivity.this, ResourcesActivity.class));
             }
         });
 
@@ -83,11 +108,13 @@ public class MainActivity extends AppCompatActivity {
     private void setUpArticleModels() {
         String[] articleTitles = getResources().getStringArray(R.array.article_title);
         String[] articleAuthors = getResources().getStringArray(R.array.article_author);
+        String[] articleContent = getResources().getStringArray(R.array.article_content);
 
         for (int i = 0; i < articleTitles.length; i ++){
             articleModels.add(new ArticleModel(articleTitles[i],
                     articleAuthors[i],
-                    articleImages[i]));
+                    articleImages[i],
+                    articleContent[i]));
         }
     }
 
@@ -114,4 +141,15 @@ public class MainActivity extends AppCompatActivity {
         closeDrawer(drawerLayout);
     }
 
+    @Override
+    public void onItemClick(int pos) {
+        Intent intent = new Intent(MainActivity.this, ArticleActivity.class);
+
+        intent.putExtra("TITLE", articleModels.get(pos).getArticleTitle());
+        intent.putExtra("AUTHOR", articleModels.get(pos).getArticleAuthor());
+        intent.putExtra("CONTENT", articleModels.get(pos).getArticleContent());
+        intent.putExtra("IMAGE", articleModels.get(pos).getArticleImage());
+
+        startActivity(intent);
+    }
 }

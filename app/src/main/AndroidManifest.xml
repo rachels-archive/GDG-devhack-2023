@@ -4,6 +4,7 @@
     package="com.example.hackathon">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -49,6 +50,28 @@
             android:name=".ScanActivity"
             android:exported="false"
             android:label="@string/title_activity_scan"
+            android:theme="@style/Theme.Hackathon" />
+
+        <activity
+            android:name=".ArticleActivity"
+            android:exported="false"
+            android:label="@string/title_activity_article"
+            android:theme="@style/Theme.Hackathon" />
+
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false"
+            android:label="@string/title_activity_chat"
+            android:theme="@style/Theme.Hackathon" />
+        <activity
+            android:name=".ResourceDetailsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_resource_details"
+            android:theme="@style/Theme.Hackathon" />
+        <activity
+            android:name=".ResourceListActivity"
+            android:exported="false"
+            android:label="@string/title_activity_resource_list"
             android:theme="@style/Theme.Hackathon" />
 
         <meta-data

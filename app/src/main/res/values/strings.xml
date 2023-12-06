@@ -4,7 +4,10 @@
     <string name="title_activity_reports">ReportsActivity</string>
     <string name="title_activity_scan">ScanActivity</string>
     <string name="title_activity_resources">ResourcesActivity</string>
-    
+    <string name="title_activity_article">ArticleActivity</string>
+    <string name="title_activity_chat">ChatActivity</string>
+    <string name="title_activity_resource_list">ResourceListActivity</string>
+    <string name="title_activity_resource_details">ResourceDetailsActivity</string>
     
     <string-array name="article_title">
         <item>Determine your Skin Type</item>
@@ -14,8 +17,82 @@
 
     <string-array name="article_author">
         <item>by Dr. Smith</item>
-        <item>by Jillians (Msc)</item>
         <item>by Dr. Ling</item>
+        <item>by Jillians (Msc)</item>
+    </string-array>
+
+    <string-array name="article_content">
+        <item>To determine your skin tye, you can try this easy blotting paper test at home. Firstly, press a piece of blotting paper gently against your forehead, nose, chin, and cheeks. Then, observe the amount of oil transferred to the paper.\n \n
+            &#8226; If there is minimal to no oil transfer, you have dry skin. \n\n&#8226; If there is significant oil transfer, especially in the T-zone, you likely have oily skin. \n\n&#8226;If the oil transfer is primarily in the T-zone, with minimal to no oil on the cheeks,the your skin is considered to be combination skin type.</item>
+        <item>If you notice any of these signs, it is important to see a dermatologist right away.\n\n&#8226; A new mole or a change in the size, shape, or color of an existing mole. \n \n &#8226; A mole that has an irregular border or multiple colors. \n \n&#8226; A mole that is larger than ¼ inch (6 millimeters) in diameter. \n\n &#8226; A mole that is painful, itchy, or bleeds. </item>
+        <item>Want to keep your skin looking its best? Here are the top 3 tips for healthy, radiant skin:\n \n 1. Protect yourself from the sun. Sun exposure is the leading cause of premature skin aging and skin cancer. Use a broad-spectrum sunscreen with an SPF of 30 or higher every day, even on cloudy days and wear protective clothing.\n\n
+            2. Cleanse and moisturise your skin and daily. Use a mild cleanser that is appropriate for your skin type. Wash your face twice a day, in the morning and at night. Moisturize your skin after you shower or bathe, and again as needed throughout the day. \n\n3. Eat a healthy diet. Eating a healthy diet that is rich in fruits, vegetables, and whole grains can help to improve your overall skin health. These foods are packed with nutrients that can help to protect your skin.
+    </item>
+    </string-array>
+
+
+    <string-array name="skin_condition_name">
+        <item>Acne</item>
+        <item>Cellulitis</item>
+        <item>Ezcema</item>
+        <item>Hives</item>
+        <item>Melanoma</item>
+        <item>Psoriasis</item>
+        <item>Rosacea</item>
+        <item>Vitiligo</item>
+    </string-array>
+
+    <string-array name="skin_condition_desc">
+        <item>Acne is a common skin condition that causes spots or pimples on the face, neck, back or chest.</item>
+        <item>Cellulitis is a skin infection caused by bacteria. It can be warm, red, tender and very painful.</item>
+        <item>Ezcema is a condition that causes dry, itchy and inflamed skin.</item>
+        <item>This causes itchy, raised welts that occur after exposure to an allergen.</item>
+        <item>Melanoma is a type of skin cancer that can spread to other areas of the body.</item>
+        <item>Psoriasis is a long-term inflammatory disease that causes red, scaly skin lesions.</item>
+        <item>Rosacea is a common skin condition that most often affects your cheeks, chin and nose.</item>
+        <item>Vitiligo is a chronic autoimmune condition that causes the skin to lose melanin.</item>
+    </string-array>
+
+    <string-array name="skin_condition_prevention">
+        <item>&#8226; avoid skin care products with alcohol \n &#8226; wash face daily \n &#8226;use an oil-free moisturizer \n &#8226; get enough sleep  \n &#8226; eat a balanced diet</item>
+        <item>&#8226; keep skin clean and well moisturized \n  &#8226; avoid skin injuries such as cuts and scrapes \n &#8226; keep your nails short </item>
+        <item>&#8226; moisturise your skin regularly  \n  &#8226; avoid hot showers \n  &#8226; stay hydrated \n  &#8226; wear loose clothing</item>
+        <item>Avoid allergy triggers. These can include foods, medications, pollen, pet dander, latex and insect stings.</item>
+        <item> The main cause of melanoma is ultraviolet light, avoiding sun exposure and using a broad-spectrum sunscreen can greatly reduce the risk of melanoma.</item>
+        <item>Psoriasis is a long-term inflammatory disease that causes red, scaly skin lesions</item>
+        <item>As we don’t know exactly what causes rosacea, it can’t be prevented.</item>
+        <item>There is currently no known way to prevent or cure vitiligo.</item>
+    </string-array>
+
+    <string-array name="skin_condition_treatment">
+        <item>&#8226; acne wash or cleanser \n &#8226; tea tree oil \n &#8226; creams with glycolic acid \n &#8226;light microdermabrasion \n &#8226; antibiotics</item>
+        <item>&#8226; antibiotics \n  &#8226; rest \n &#8226; elevation of affected body parts \n &#8226; topical steroids \n &#8226; painkillers </item>
+        <item>&#8226; moisturisers and topical steroids \n &#8226; antihistamines</item>
+        <item>&#8226; No treatment is normally needed.\n &#8226; If condition persists, it can be treated by taking antihistamines.</item>
+        <item>&#8226; Surgery \n &#8226; chemotherapy \n &#8226; radiotherapy \n &#8226; immunotherapy</item>
+        <item>&#8226; corticosteroid medicines \n &#8226; light therapy \n &#8226; application of retinoids</item>
+        <item>&#8226; use gentle products \n  &#8226; avoid excess sunlight and dry weather \n  &#8226; avoid skin injuries \n  &#8226; avoid alcohol</item>
+        <item>&#8226; topical creams \n  &#8226; light therapy \n  &#8226; prescription medications \n  &#8226; depigmentation \n  &#8226; surgery</item>
+    </string-array>
+
+    <string-array name="medication_name">
+        <item>Accutane</item>
+        <item>Clarinex</item>
+        <item>Clobetasol</item>
+        <item>Differin</item>
+        <item>Lotrimin</item>
+        <item>Minocin</item>
+        <item>Mirvaso</item>
+    </string-array>
+
+    <string-array name="medication_desc">
+        <item>Accutane is a medication primarily used to treat severe acne. It is also used to prevent certain skin cancers, and in the treatment of other cancers.</item>
+        <item>Clarinex is an antihistamine used to treat the symptoms of allergies,  skin hives and itching in people with chronic skin reactions.</item>
+        <item>Clobetasol reduces swelling, redness, itching, or rashes caused by skin conditions, such as eczema and psoriasis.</item>
+        <item>Differin is primarily used in the treatment of mild-moderate acne, and is also used off-label to treat keratosis pilaris as well as other skin conditions.</item>
+        <item>Lotrimin is used to treat fungal infections such as yeast infections, oral thrush, diaper rash, tinea versicolor, athlete\'s foot and jock itch.</item>
+        <item>Minocin treats acne by killing the bacteria that infects pores and decreasing a certain natural oily substance that causes acne</item>
+        <item>Mirvaso is used for treating skin of the face affected by redness due to rosacea in adult patients.</item>
     </string-array>
 
 </resources>
