@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <include layout="@layout/backbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#d3d3d3"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            app:cardCornerRadius="20dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp">
+
+                <ImageView
+                    android:layout_width="280dp"
+                    android:layout_height="250dp"
+                    android:src="@drawable/article1"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Diagnosis: \nMild Rosacea"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/poppins"
+                    android:textAlignment="center"
+                    android:text="Advice:\n1. Gently cleanse face twice a day.\n 2. Apply moisturiser regularly.
+        \n3. Wear a SPF 50+ sunscreen.
+        \n4. Avoid skincare products with alcohol and fragrance.
+        \n5. Avoid exfoliating the skin.
+        \n6. Reduce stress levels and eat a balanced diet.
+        \n\nVisit a dermatologist for prescription if symptoms persist for over a week."
+                    android:textSize="20sp"
+                    />
+
+
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+</LinearLayout>

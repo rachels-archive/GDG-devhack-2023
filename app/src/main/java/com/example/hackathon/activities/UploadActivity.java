@@ -36,12 +36,11 @@ import java.util.Calendar;
 
 public class UploadActivity extends AppCompatActivity {
 
-    ImageView uploadImage;
+    ImageView uploadImage, backBtn;
     Button saveButton;
     EditText uploadTopic, uploadDesc, uploadDate;
     String imageURL;
     Uri uri;
-
 
 
     @Override
@@ -54,6 +53,7 @@ public class UploadActivity extends AppCompatActivity {
         uploadTopic = findViewById(R.id.uploadTopic);
         uploadDate = findViewById(R.id.uploadDate);
         saveButton = findViewById(R.id.saveButton);
+        backBtn = findViewById(R.id.backbtn);
 
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -120,6 +120,10 @@ public class UploadActivity extends AppCompatActivity {
             public void onClick(View view) {
                 saveData();
             }
+        });
+
+        backBtn.setOnClickListener(v-> {
+            finish();
         });
     }
 

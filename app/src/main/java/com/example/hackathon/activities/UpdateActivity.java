@@ -38,7 +38,7 @@ import java.util.Calendar;
 
 public class UpdateActivity extends AppCompatActivity {
 
-    ImageView updateImage;
+    ImageView updateImage, backBtn;
     Button updateButton;
     EditText updateDesc, updateTitle, updateDate;
     String title, desc, date;
@@ -58,6 +58,7 @@ public class UpdateActivity extends AppCompatActivity {
         updateImage = findViewById(R.id.updateImage);
         updateDate = findViewById(R.id.updateDate);
         updateTitle = findViewById(R.id.updateTitle);
+        backBtn = findViewById(R.id.backbtn);
 
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -129,7 +130,6 @@ public class UpdateActivity extends AppCompatActivity {
             }
         });
 
-
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,6 +137,10 @@ public class UpdateActivity extends AppCompatActivity {
                 Intent intent = new Intent(UpdateActivity.this, MainActivity.class);
                 startActivity(intent);
             }
+        });
+
+        backBtn.setOnClickListener(v-> {
+            finish();
         });
 
     }

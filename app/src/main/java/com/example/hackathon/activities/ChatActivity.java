@@ -1,6 +1,7 @@
 package com.example.hackathon.activities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -65,7 +66,6 @@ public class ChatActivity extends AppCompatActivity {
         messageEditText = findViewById(R.id.chatEditText);
         sendButton = findViewById(R.id.chatSendBtn);
 
-
         backBtn = findViewById(R.id.backbtn);
 
         messageAdapter = new MessageAdapter(messageList);
@@ -117,13 +117,21 @@ public class ChatActivity extends AppCompatActivity {
             jsonBody.put("model", "gpt-3.5-turbo");
 
             JSONArray messageArr = new JSONArray();
-            JSONObject obj = new JSONObject();
-            obj.put("role", "user");
-            obj.put("content", question);
-            messageArr.put(obj);
+
+            JSONObject config = new JSONObject();
+            config.put("role", "system");
+            config.put("content", "You are a helpful assistant for a dermatology mobile app named DermBot.");
+
+            JSONObject msgObj = new JSONObject();
+            msgObj.put("role", "user");
+            msgObj.put("content", question);
+
+            messageArr.put(config);
+            messageArr.put(msgObj);
 
             jsonBody.put("messages", messageArr);
 
+            Log.i("msg",jsonBody.toString());
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -133,7 +141,7 @@ public class ChatActivity extends AppCompatActivity {
         RequestBody body = RequestBody.create(jsonBody.toString(), JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/chat/completions")
-                .header("Authorization", "Bearer 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")
+                .header("Authorization", "Bearer YOUR_API_KEY")
                 .post(body)
                 .build();
 

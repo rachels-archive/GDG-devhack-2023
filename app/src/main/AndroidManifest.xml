@@ -39,6 +39,14 @@
             android:exported="false"
             android:label="@string/title_activity_reports"
             android:theme="@style/Theme.Hackathon" />
+
+        <activity
+            android:name=".activities.ReportDetailsActivity"
+            android:exported="false"
+            android:label="ReportDetailsActivityActivity"
+            android:theme="@style/Theme.Hackathon" />
+
+
         <activity
             android:name=".activities.ResourcesActivity"
             android:exported="false"
